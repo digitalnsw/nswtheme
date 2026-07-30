@@ -1,6 +1,6 @@
 # Style interactive plot tooltips
 
-CSS code required to add waratah-styled tooltips to interactive graphs
+CSS code required to add nswtheme-styled tooltips to interactive graphs
 created using ggiraph.
 
 ## Usage
@@ -40,7 +40,7 @@ A character vector containing CSS rules
 
 As normal with HTML elements, you must make sure that the final document
 loads the necessary fonts. See
-[`vignette("waratah")`](https://digitalnsw.github.io/nsw-r-visualisations/articles/waratah.md)
+[`vignette("nswtheme")`](https://digitalnsw.github.io/nswtheme/articles/nswtheme.md)
 for instructions.
 
 ## Examples

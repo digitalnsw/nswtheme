@@ -5,11 +5,11 @@ rows.
 
 - `col_nsw()` allows accessing a colour grid like a matrix. For ggplot
   colour palettes, you'll normally want
-  [`pal_nsw()`](https://digitalnsw.github.io/nsw-r-visualisations/reference/pal_nsw.md)
+  [`pal_nsw()`](https://digitalnsw.github.io/nswtheme/reference/pal_nsw.md)
   instead.
 
 - `define_colour_theme()` defines a new colour theme that can be used in
-  any waratah function that accepts a `variant` parameter.
+  any nswtheme function that accepts a `variant` parameter.
 
 ## Usage
 
@@ -21,7 +21,7 @@ define_colour_theme(name, parent, colours)
 col_nsw(
   hue,
   tone,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   byrow = FALSE
 )
 ```
@@ -96,14 +96,14 @@ a specific order. These themes are built in:
 - `"corporate"`: blues, reds, greys
 
 The default variant can be specified globally with
-`options(waratah.colour_theme)`.
+`options(nswtheme.colour_theme)`.
 
 Unambiguous shortened forms are accepted, e.g.
 `pal_nsw(h = "red", v = "a")`.
 
 ## See also
 
-[`pal_nsw()`](https://digitalnsw.github.io/nsw-r-visualisations/reference/pal_nsw.md)
+[`pal_nsw()`](https://digitalnsw.github.io/nswtheme/reference/pal_nsw.md)
 
 ## Examples
 

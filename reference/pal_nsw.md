@@ -12,7 +12,7 @@ pal_nsw(
   palette = waiver(),
   hue = NA,
   tone = NA,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   direction = 1
 )
 
@@ -48,7 +48,7 @@ pal_nsw_manual(colours)
 - colours:
 
   vector of colour names corresponding to
-  [nsw_colours](https://digitalnsw.github.io/nsw-r-visualisations/reference/col_nsw.md).
+  [nsw_colours](https://digitalnsw.github.io/nswtheme/reference/col_nsw.md).
 
 ## Value
 
@@ -90,17 +90,17 @@ a specific order. These themes are built in:
 - `"corporate"`: blues, reds, greys
 
 The default variant can be specified globally with
-`options(waratah.colour_theme)`.
+`options(nswtheme.colour_theme)`.
 
 Unambiguous shortened forms are accepted, e.g.
 `pal_nsw(h = "red", v = "a")`.
 
 ## See also
 
-[`col_nsw()`](https://digitalnsw.github.io/nsw-r-visualisations/reference/col_nsw.md)
+[`col_nsw()`](https://digitalnsw.github.io/nswtheme/reference/col_nsw.md)
 
 Other palettes:
-[`pal_waratah()`](https://digitalnsw.github.io/nsw-r-visualisations/reference/pal_waratah.md)
+[`pal_waratah()`](https://digitalnsw.github.io/nswtheme/reference/pal_waratah.md)
 
 ## Examples
 

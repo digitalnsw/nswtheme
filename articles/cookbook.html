@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>cookbook • waratah</title>
+<title>cookbook • nswtheme</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="cookbook">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">waratah</a>
+    <a class="navbar-brand me-2" href="../index.html">nswtheme</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
@@ -30,7 +30,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/waratah.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/nswtheme.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -45,7 +45,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/digitalnsw/nsw-r-visualisations/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/digitalnsw/nswtheme/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -62,21 +62,21 @@
       <h1>cookbook</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/digitalnsw/nsw-r-visualisations/blob/main/vignettes/cookbook.Rmd" class="external-link"><code>vignettes/cookbook.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/digitalnsw/nswtheme/blob/main/vignettes/cookbook.Rmd" class="external-link"><code>vignettes/cookbook.Rmd</code></a></small>
       <div class="d-none name"><code>cookbook.Rmd</code></div>
     </div>
 
     
     
 <p>This article contains some recipes for different plot styles and how
-to apply waratah styles. Each example shows the base plot then the
+to apply nswtheme styles. Each example shows the base plot then the
 themed version.</p>
 <div class="section level2">
 <h2 id="example-1-markdown-text">Example 1: markdown text<a class="anchor" aria-label="anchor" href="#example-1-markdown-text"></a>
 </h2>
 <p>With standard ggplot output:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/digitalnsw/nsw-r-visualisations" class="external-link">waratah</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/digitalnsw/nswtheme" class="external-link">nswtheme</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -115,10 +115,10 @@ themed version.</p>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing missing values or values outside the scale range</span></span>
 <span><span class="co">#&gt; (`geom_point()`).</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="700"></p>
-<p>Style with waratah:</p>
+<p>Style with nswtheme:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p1</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing missing values or values outside the scale range</span></span>
 <span><span class="co">#&gt; (`geom_point()`).</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="700"></p>
@@ -126,7 +126,7 @@ themed version.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p1</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html" class="external-link">scale_colour_discrete</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="../reference/pal_waratah.html">pal_waratah</a></span><span class="op">(</span><span class="st">"qual"</span>, var <span class="op">=</span> <span class="st">"aboriginal"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 2 rows containing missing values or values outside the scale range</span></span>
 <span><span class="co">#&gt; (`geom_point()`).</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
@@ -173,12 +173,12 @@ details.</p>
 <span></span>
 <span><span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Paired"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
-<p>Styling using waratah package - here we want a paired colour
+<p>Styling using nswtheme package - here we want a paired colour
 palette:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p2</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">discrete_scale</a></span><span class="op">(</span><span class="st">"fill"</span>, palette <span class="op">=</span> <span class="fu"><a href="../reference/pal_waratah.html">pal_waratah</a></span><span class="op">(</span><span class="st">"pairs"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="700"></p>
 <p>More manual control of the palette is possible, for example
 specifying the rows and columns of the colour grid to use:</p>
@@ -191,7 +191,7 @@ specifying the rows and columns of the colour grid to use:</p>
 <span>      var <span class="op">=</span> <span class="st">"aboriginal"</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 <div class="section level2">
@@ -213,11 +213,11 @@ specifying the rows and columns of the colour grid to use:</p>
 <span></span>
 <span><span class="va">p3</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="700"></p>
-<p>Styling using the waratah package - specifying pallete</p>
+<p>Styling using the nswtheme package - specifying pallete</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p3</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html" class="external-link">scale_fill_discrete</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="../reference/pal_nsw.html">pal_nsw</a></span><span class="op">(</span>hue <span class="op">=</span> <span class="st">"purples"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">70</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>panel.grid.major.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="700"></p>
@@ -261,7 +261,7 @@ specifying the rows and columns of the colour grid to use:</p>
 <span></span>
 <span><span class="va">p4</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="700"></p>
-<p>Styling using the waratah package with options:</p>
+<p>Styling using the nswtheme package with options:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p4</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html" class="external-link">scale_fill_discrete</a></span><span class="op">(</span></span>
@@ -269,7 +269,7 @@ specifying the rows and columns of the colour grid to use:</p>
 <span>    palette <span class="op">=</span> <span class="fu"><a href="../reference/pal_waratah.html">pal_waratah</a></span><span class="op">(</span><span class="st">"qual"</span><span class="op">)</span>,</span>
 <span>    guide <span class="op">=</span> <span class="st">"none"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span></span>
 <span>    void <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    base_size <span class="op">=</span> <span class="fl">14</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -343,9 +343,9 @@ of demonstrating styling.</p>
 <span></span>
 <span><span class="va">p5</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"PiYG"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" alt="" width="700"></p>
-<p>Styling using the waratah package. Note that the diverging palette is
-continuous, so we need <code><a href="../reference/ggplot_palettes.html">pal_stretch()</a></code> to discretise it here.
-We specify <code>"red"</code> as our starting hue. Without
+<p>Styling using the nswtheme package. Note that the diverging palette
+is continuous, so we need <code><a href="../reference/ggplot_palettes.html">pal_stretch()</a></code> to discretise it
+here. We specify <code>"red"</code> as our starting hue. Without
 <code>cvd = TRUE</code> the second colour ends up being green.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p5</span> <span class="op">+</span></span>
@@ -354,7 +354,7 @@ We specify <code>"red"</code> as our starting hue. Without
 <span>    palette <span class="op">=</span> <span class="fu"><a href="../reference/pal_waratah.html">pal_waratah</a></span><span class="op">(</span><span class="st">"div"</span>, <span class="st">"red"</span>, cvd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ggplot_palettes.html">pal_stretch</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="va">sentiment</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/theme_waratah.html">theme_waratah</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/theme_nsw.html">theme_nsw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <p><img src="cookbook_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" alt="" width="700"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -368,7 +368,7 @@ We specify <code>"red"</code> as our starting hue. Without
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

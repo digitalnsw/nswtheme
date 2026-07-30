@@ -1,7 +1,8 @@
 # Interactive plots
 
 ``` r
-library(waratah)
+
+library(nswtheme)
 library(palmerpenguins)
 library(ggplot2)
 library(ggiraph)
@@ -14,6 +15,7 @@ Saving plot to an object to demonstrate custom tooltip function using
 ggiraph:
 
 ``` r
+
 p_gir <-
   ggplot(penguins) +
   geom_point_interactive(aes(
@@ -43,7 +45,7 @@ p_gir <-
   scale_colour_discrete(
     palette = pal_nsw_manual(c("blue_01", "red_02", "teal_02"))
   ) +
-  theme_waratah()
+  theme_nsw()
 
 # Create the interactive plot using ggiraph
 girafe(
@@ -58,6 +60,7 @@ girafe(
 ```
 
 ``` r
+
 
 # With additional styling options
 girafe(

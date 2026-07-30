@@ -14,16 +14,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/digitalnsw/nsw-r-visualisations/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/digitalnsw/nswtheme/blob/main/DESCRIPTION)
 
-Baldwin Z, Suster C (2026). *waratah: Easy data viz - NSW Government
+Baldwin Z, Suster C (2026). *nswtheme: Easy data viz - NSW Government
 colour & typography design*. R package version 0.1.0,
-<https://github.com/digitalnsw/nsw-r-visualisations>.
+<https://github.com/digitalnsw/nswtheme>.
 
     @Manual{,
-      title = {waratah: Easy data viz - NSW Government colour & typography design},
+      title = {nswtheme: Easy data viz - NSW Government colour & typography design},
       author = {Zoe Baldwin and Carl Suster},
       year = {2026},
       note = {R package version 0.1.0},
-      url = {https://github.com/digitalnsw/nsw-r-visualisations},
+      url = {https://github.com/digitalnsw/nswtheme},
     }
