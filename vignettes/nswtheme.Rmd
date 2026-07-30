@@ -1,8 +1,8 @@
 ---
-title: "waratah"
+title: "nswtheme"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{waratah}
+  %\VignetteIndexEntry{nswtheme}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(ggplot2, warn.conflicts = FALSE)
-library(waratah)
+library(nswtheme)
 ```
 
 ## Fonts
@@ -43,9 +43,9 @@ Recommendations:
 
 ## Theme for ggplot2
 
-`theme_waratah()` sets default fonts, styles, and colour palettes for plots.
+`theme_nsw()` sets default fonts, styles, and colour palettes for plots.
 You can set the theme globally with `ggplot2::set_theme()` or add it to an individual plot.
-If using any global options like `options(waratah.colour_theme = "aboriginal")`, make sure
+If using any global options like `options(nswtheme.colour_theme = "aboriginal")`, make sure
 to do this before setting the theme.
 
 See `vignette("cookbook")` for some examples of using the theme.
@@ -110,12 +110,12 @@ pal_waratah("div", hue = "green", cvd = TRUE) |> scales::show_col(labels = FALSE
 To make that choice globally, set:
 
 ```R
-options(waratah.cvd = TRUE)
+options(nswtheme.cvd = TRUE)
 ```
 
 ### Colour themes
 
-Colour palettes in waratah allow a variant to be specified, including the default `variant = "base"` and the Aboriginal palette `variant = "aboriginal"`.
+Colour palettes in nswtheme allow a variant to be specified, including the default `variant = "base"` and the Aboriginal palette `variant = "aboriginal"`.
 See `pal_nsw()` for details.
 
 ## NSW Government logo
@@ -127,7 +127,7 @@ library(magick)
 image_path <- system.file(
   "images",
   "nsw-gov-logo-primary.png",
-  package = "waratah"
+  package = "nswtheme"
 )
 image_read(image_path)
 ```

@@ -50,7 +50,7 @@ pal_nsw <- function(
   palette = waiver(),
   hue = NA,
   tone = NA,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   direction = 1
 ) {
   if (all(identical(hue, NA), identical(tone, NA))) {

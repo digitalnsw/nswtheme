@@ -21,7 +21,7 @@
 #' Colours can be specified as named NSW colours as in [`nsw_colours`].
 #'
 #' As normal with HTML elements, you must make sure that the final document
-#' loads the necessary fonts. See `vignette("waratah")` for instructions.
+#' loads the necessary fonts. See `vignette("nswtheme")` for instructions.
 #'
 #' @return A reactable theme object
 #' @export
@@ -32,14 +32,14 @@
 #' head(palmerpenguins::penguins, 10) |>
 #'   reactable(theme = reactableTheme())
 #'
-#' # Adding waratah style
+#' # Adding nswtheme style
 #' head(palmerpenguins::penguins, 10) |>
-#'   reactable(theme = reactable_theme())
+#'   reactable(theme = reactable_nswtheme())
 #'
 #' # More customised styling
 #' head(palmerpenguins::penguins, 10) |>
 #'   reactable(
-#'     theme = reactable_theme(
+#'     theme = reactable_nswtheme(
 #'       colour = "blue_01",
 #'       base_family = "Arial",
 #'       text_colour = "black",
@@ -48,7 +48,7 @@
 #'     striped = TRUE
 #'   )
 #'
-reactable_theme <- function(
+reactable_nswtheme <- function(
   colour = "blue_01",
   text_colour = colour,
   borderColor = colour,

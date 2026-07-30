@@ -181,7 +181,7 @@ doc_themes <- function() {
 #'   - `col_nsw()` allows accessing a colour grid like a matrix.
 #'     For ggplot colour palettes, you'll normally want [pal_nsw()] instead.
 #'   - `define_colour_theme()` defines a new colour theme that can be used
-#'     in any waratah function that accepts a `variant` parameter.
+#'     in any nswtheme function that accepts a `variant` parameter.
 #'
 #' @param hue name or index of the hue - see below.
 #' @param tone name or index of the tone - see below.
@@ -210,7 +210,7 @@ doc_themes <- function() {
 #' These themes are built in:
 #' `r doc_themes()`
 #'
-#' The default variant can be specified globally with `options(waratah.colour_theme)`.
+#' The default variant can be specified globally with `options(nswtheme.colour_theme)`.
 #'
 #' Unambiguous shortened forms are accepted, e.g. `pal_nsw(h = "red", v = "a")`.
 #'
@@ -228,7 +228,7 @@ doc_themes <- function() {
 col_nsw <- function(
   hue,
   tone,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   byrow = FALSE
 ) {
   variant <- match.arg(variant, names(nsw_colour_grids))

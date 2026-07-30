@@ -19,7 +19,7 @@
 #' @importFrom scales as_continuous_pal
 #' @examples
 #' library(ggplot2)
-#' set_theme(theme_waratah())
+#' set_theme(theme_nsw())
 #'
 #' ggplot(palmerpenguins::penguins) +
 #'   geom_point(aes(
@@ -38,7 +38,7 @@
 #'     )
 #'   )
 #'
-theme_waratah <- function(
+theme_nsw <- function(
   base_size = 11,
   base_family = "Public Sans",
   header_family = "Public Sans",
@@ -48,7 +48,7 @@ theme_waratah <- function(
   paper = "white",
   geom_ink = "blue_01",
   accent = "blue_02",
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   show_grid_lines = TRUE,
   void = FALSE
 ) {

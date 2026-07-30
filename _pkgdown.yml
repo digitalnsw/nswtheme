@@ -1,4 +1,4 @@
-url: https://digitalnsw.github.io/nsw-r-visualisations/
+url: https://digitalnsw.github.io/nswtheme/
 template:
   bootstrap: 5
   bslib:
@@ -12,7 +12,7 @@ reference:
   desc: >
     Main theme and colour palettes.
   contents:
-  - theme_waratah
+  - theme_nsw
   - pal_waratah
   - pal_nsw
 - title: Colour utilities
@@ -26,7 +26,7 @@ reference:
     Themes for interactive HTML tables and plots.
   contents:
   - tooltip_css
-  - reactable_theme
+  - reactable_nswtheme
 - title: Other
   contents:
-  - waratah
+  - nswtheme

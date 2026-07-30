@@ -14,7 +14,7 @@ define_colour_theme(name, parent, colours)
 col_nsw(
   hue,
   tone,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   byrow = FALSE
 )
 }
@@ -46,7 +46,7 @@ The NSW design system colours work in grids of colour columns and tonal rows.
 \item \code{col_nsw()} allows accessing a colour grid like a matrix.
 For ggplot colour palettes, you'll normally want \code{\link[=pal_nsw]{pal_nsw()}} instead.
 \item \code{define_colour_theme()} defines a new colour theme that can be used
-in any waratah function that accepts a \code{variant} parameter.
+in any nswtheme function that accepts a \code{variant} parameter.
 }
 }
 \details{
@@ -78,7 +78,7 @@ These themes are built in:
 \item \code{"corporate"}: blues, reds, greys
 }
 
-The default variant can be specified globally with \code{options(waratah.colour_theme)}.
+The default variant can be specified globally with \code{options(nswtheme.colour_theme)}.
 
 Unambiguous shortened forms are accepted, e.g. \code{pal_nsw(h = "red", v = "a")}.
 }

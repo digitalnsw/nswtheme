@@ -7,8 +7,8 @@
 pal_waratah(
   type = c("qual", "seq", "div", "pairs", "triples"),
   hue = 1,
-  cvd = getOption("waratah.cvd", default = FALSE),
-  variant = getOption("waratah.colour_theme", default = "base"),
+  cvd = getOption("nswtheme.cvd", default = FALSE),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   direction = 1
 )
 }
@@ -19,7 +19,7 @@ pal_waratah(
 \item \code{"seq"} continuous sequential palette: a gradient spanning extreme tones of \code{hue}
 \item \code{"div"} continuous diverging palette: a gradient spanning extreme tones of \code{hue}
 and a second distinct colour.
-\item \code{"pairs"}, \code{"triples"} like `"qual"`` but in sets of 2 or 2 tones of each hue.
+\item \code{"pairs"}, \code{"triples"} like `"qual"`` but in sets of 2 or 3 tones per hue.
 }}
 
 \item{hue}{main hue, either by name of index.

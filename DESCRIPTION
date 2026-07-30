@@ -1,4 +1,4 @@
-Package: waratah
+Package: nswtheme
 Title: Easy data viz - NSW Government colour & typography design
 Version: 0.1.0
 Authors@R:
@@ -40,11 +40,12 @@ Imports:
     extrafont,
     vctrs,
     farver
-URL: https://github.com/digitalnsw/nsw-r-visualisations, https://digitalnsw.github.io/nsw-r-visualisations/
-BugReports: https://github.com/digitalnsw/nsw-r-visualisations/issues
+URL: https://github.com/digitalnsw/nswtheme, https://digitalnsw.github.io/nswtheme/
+BugReports: https://github.com/digitalnsw/nswtheme/issues
 Suggests:
     dplyr,
     forcats,
+    gfonts,
     ggiraph,
     reactable (>= 0.4.4),
     knitr,

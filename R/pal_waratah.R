@@ -33,8 +33,8 @@
 pal_waratah <- function(
   type = c("qual", "seq", "div", "pairs", "triples"),
   hue = 1,
-  cvd = getOption("waratah.cvd", default = FALSE),
-  variant = getOption("waratah.colour_theme", default = "base"),
+  cvd = getOption("nswtheme.cvd", default = FALSE),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   direction = 1
 ) {
   type <- rlang::arg_match(type)

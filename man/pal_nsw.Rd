@@ -9,7 +9,7 @@ pal_nsw(
   palette = waiver(),
   hue = NA,
   tone = NA,
-  variant = getOption("waratah.colour_theme", default = "base"),
+  variant = getOption("nswtheme.colour_theme", default = "base"),
   direction = 1
 )
 
@@ -73,7 +73,7 @@ These themes are built in:
 \item \code{"corporate"}: blues, reds, greys
 }
 
-The default variant can be specified globally with \code{options(waratah.colour_theme)}.
+The default variant can be specified globally with \code{options(nswtheme.colour_theme)}.
 
 Unambiguous shortened forms are accepted, e.g. \code{pal_nsw(h = "red", v = "a")}.
 }

@@ -32,7 +32,7 @@
   # convert the font format and register.
   if (!"Public Sans" %in% extrafont::fonts()) {
     if (requireNamespace("pkgload") && pkgload::is_dev_package(pkgname)) {
-      # When developing waratah itself, font_addpackage() will not work.
+      # When developing nswtheme itself, font_addpackage() will not work.
       # After installing the package once, e.g. by running devtools::check(),
       # things should work smoothly.
       return()

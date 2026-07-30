@@ -24,12 +24,12 @@ tooltip_css(
 A character vector containing CSS rules
 }
 \description{
-CSS code required to add waratah-styled tooltips to interactive graphs
+CSS code required to add nswtheme-styled tooltips to interactive graphs
 created using ggiraph.
 }
 \details{
 As normal with HTML elements, you must make sure that the final document
-loads the necessary fonts. See \code{vignette("waratah")} for instructions.
+loads the necessary fonts. See \code{vignette("nswtheme")} for instructions.
 }
 \examples{
 tooltip_css()

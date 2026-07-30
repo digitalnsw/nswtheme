@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(waratah)
+library(nswtheme)
 library(ggplot2, warn.conflicts = FALSE)
 library(dplyr, warn.conflicts = FALSE)
 library(forcats)
@@ -23,7 +23,7 @@ library(reactable)
 
 ```{r, echo = TRUE}
 set_theme(
-  theme_waratah(variant = "corporate") + theme(legend.position = "bottom")
+  theme_nsw(variant = "corporate") + theme(legend.position = "bottom")
 )
 ```
 
@@ -136,7 +136,7 @@ applications |>
 **Summary**: City of Sydney and Parramatta assessed the highest number of applications in Q1 2025, together accounting for over a third of the total.
 
 ```{r}
-reactable(applications, theme = reactable_theme())
+reactable(applications, theme = reactable_nswtheme())
 ```
 
 **Source**: NSW Planning Portal. Last updated: March 2025.
@@ -164,7 +164,7 @@ support |>
 **Summary**: Digital contact grew steadily across all four quarters, while phone and in-person volumes declined. By Q4, digital accounted for more than two-thirds of all requests.
 
 ```{r}
-reactable(support, theme = reactable_theme())
+reactable(support, theme = reactable_nswtheme())
 ```
 
 **Source**: Service NSW. Last updated: June 2025.
@@ -203,7 +203,7 @@ road_incidents |>
 **Summary**: Incidents were highest in summer months, peaking in December and January. July recorded the lowest monthly total for the year.
 
 ```{r}
-reactable(road_incidents, theme = reactable_theme())
+reactable(road_incidents, theme = reactable_nswtheme())
 ```
 
 **Source**: Transport for NSW. Last updated: December 2024.
@@ -239,7 +239,7 @@ service_transactions |>
 **Summary**: App transactions grew fastest over the year, nearly doubling. Web remained the largest channel. Assisted digital declined steadily as self-service adoption increased.
 
 ```{r}
-reactable(service_transactions, theme = reactable_theme())
+reactable(service_transactions, theme = reactable_nswtheme())
 ```
 
 **Source**: Service NSW. Last updated: June 2025.
@@ -269,7 +269,7 @@ grants |>
 **Summary**: Grant disbursements accelerated from October, with the final quarter accounting for more than half of the full-year total.
 
 ```{r}
-reactable(grants, theme = reactable_theme())
+reactable(grants, theme = reactable_nswtheme())
 ```
 
 **Source**: NSW Treasury. Last updated: December 2024.
@@ -297,7 +297,7 @@ open_cases |>
 **Summary**: The total number of open cases grew steadily across all priority levels. Critical cases grew fastest proportionally, nearly doubling between January and June.
 
 ```{r}
-reactable(open_cases, theme = reactable_theme())
+reactable(open_cases, theme = reactable_nswtheme())
 ```
 
 **Source**: Service NSW. Last updated: June 2025.
@@ -331,7 +331,7 @@ planning |>
 **Summary**: Applications with higher complexity scores consistently took longer to process. Most straightforward applications (score below 30) resolved within 5 working days. Complex applications (score above 70) averaged 18 days, with significant variation.
 
 ```{r}
-reactable(planning, theme = reactable_theme())
+reactable(planning, theme = reactable_nswtheme())
 ```
 
 **Source**: NSW Planning Portal. Last updated: March 2025.
