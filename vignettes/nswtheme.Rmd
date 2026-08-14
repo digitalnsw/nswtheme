@@ -22,7 +22,7 @@ library(nswtheme)
 The NSW Government typeface is Public Sans.
 Recommendations:
 
-  - [Install the font](https://digitalnsw.github.io/public-sans/download/) on your computer. This package will attempt to register an embedded copy of the font so that it can be used even without installing the font first.
+  - [Install the font](https://public-sans.digital.nsw.gov.au/#download) on your computer. This package will attempt to register an embedded copy of the font so that it can be used even without installing the font first.
   - If possible you should use a graphics device that supports modern features such as `ragg::agg_png()`. These devices should be used by default by RStudio if {ragg} is installed.
   - If using HTML output (such as for interactive plots of tables), ensure that the document loads [Public Sans from Google Fonts](https://fonts.google.com/specimen/Public+Sans?preview.script=Latn) (see below).
 
