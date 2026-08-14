@@ -4,7 +4,7 @@
 
 The NSW Government typeface is Public Sans. Recommendations:
 
-- [Install the font](https://digitalnsw.github.io/public-sans/download/)
+- [Install the font](https://public-sans.digital.nsw.gov.au/#download)
   on your computer. This package will attempt to register an embedded
   copy of the font so that it can be used even without installing the
   font first.
