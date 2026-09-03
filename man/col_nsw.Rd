@@ -61,7 +61,7 @@ stand-alone (e.g. \code{nsw_colours$blue_01} is \code{"#002664"}).
 
 The \code{"base"} variant supports:
 \itemize{
-\item \strong{hue}: greys, greens, teals, blues, purples, fucshias, reds, oranges, yellows, browns
+\item \strong{hue}: greys, greens, teals, blues, purples, fuchsias, reds, oranges, yellows, browns
 \item \strong{tone}: dark, normal, light, pale
 }
 

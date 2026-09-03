@@ -73,7 +73,7 @@ test_that("grid dimensions are named as documented", {
       "teals",
       "blues",
       "purples",
-      "fucshias",
+      "fuchsias",
       "reds",
       "oranges",
       "yellows",

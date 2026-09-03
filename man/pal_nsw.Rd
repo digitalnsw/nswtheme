@@ -56,7 +56,7 @@ To create custom combinations of named colours from the design system, use
 
 The \code{"base"} variant supports:
 \itemize{
-\item \strong{hue}: greys, greens, teals, blues, purples, fucshias, reds, oranges, yellows, browns
+\item \strong{hue}: greys, greens, teals, blues, purples, fuchsias, reds, oranges, yellows, browns
 \item \strong{tone}: dark, normal, light, pale
 }
 
