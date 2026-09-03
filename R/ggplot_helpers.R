@@ -27,11 +27,10 @@ NULL
 #' @rdname ggplot_palettes
 #'
 pal_interleave <- function(...) {
-  pals <- vctrs::vec_recycle_common(...)
-  pals <- Map(as_colour_vector, pals)
+  pals <- Map(as_colour_vector, rlang::list2(...))
+  pals <- vctrs::vec_recycle_common(!!!pals)
   n_cols <- length(pals[[1]])
   n_pals <- length(pals)
-  idx <- rep(seq_len(n_cols), each = n_pals)
   idx <- rep(seq_len(n_cols), each = n_pals) +
     rep(seq_len(n_pals) - 1, times = n_cols) * n_cols
   scales::pal_manual(unlist(pals)[idx], type = "colour")

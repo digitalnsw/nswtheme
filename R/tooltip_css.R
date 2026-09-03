@@ -33,7 +33,7 @@ tooltip_css <- function(
       "padding: 10px;",
       sprintf("background-color: %s;", background_colour),
       sprintf("color: %s;", text_colour),
-      sprintf("font-family: %s", font_family),
+      sprintf("font-family: %s;", font_family),
       sprintf("font-size: %s;", font_size)
     ),
     collapse = " "
