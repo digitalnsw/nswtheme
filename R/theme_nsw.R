@@ -15,7 +15,7 @@
 #' @inheritParams ggplot2::theme_minimal
 #' @returns ggplot theme specification to add to a plot
 #' @export
-#' @importFrom ggplot2 theme element_blank element_text element_geom element_line element_rect %+replace% rel
+#' @importFrom ggplot2 theme element_blank element_text element_line element_rect %+replace% rel
 #' @examples
 #' library(ggplot2)
 #' set_theme(theme_nsw())
@@ -129,7 +129,7 @@ theme_nsw <- function(
         linewidth = rel(0.3)
       ),
       axis.ticks.length = rel(1),
-      geom = element_geom(
+      geom = ggplot2::element_geom(
         ink = ink,
         paper = paper,
         accent = accent,

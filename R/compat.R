@@ -1,10 +1,13 @@
-# Backports of the scales 1.4.0 palette API for scales 1.3.0 on SAPHaRI.
+# Backports for the versions pinned on SAPHaRI: ggplot2 3.5.1, scales 1.3.0.
 #
-# If updating to scales 1.4.0: delete this file and add
+# If updating to scales 1.4.0: delete the palette API below and add
 #   @importFrom scales new_discrete_palette new_continuous_palette
 #   @importFrom scales is_discrete_pal is_continuous_pal
 #   @importFrom scales palette_nlevels palette_type
 #   @importFrom scales as_discrete_pal as_continuous_pal col_mix
+#
+# If updating to ggplot2 4.0.0: delete is_waiver() and add
+#   @importFrom ggplot2 is_waiver
 
 new_discrete_palette <- function(fun, type, nlevels = NA) {
   class(fun) <- union(c("pal_discrete", "scales_pal"), class(fun))
@@ -58,3 +61,5 @@ col_mix <- function(a, b, amount = 0.5, space = "rgb") {
   new <- a * (1 - args$amount) + b * args$amount
   farver::encode_colour(new, alpha = new[, "alpha"], from = space)
 }
+
+is_waiver <- function(x) inherits(x, "waiver")

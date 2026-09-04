@@ -1,4 +1,4 @@
-#' @importFrom ggplot2 waiver is_waiver
+#' @importFrom ggplot2 waiver
 NULL
 
 #' Construct palette variants
