@@ -49,3 +49,36 @@ jobs:
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+
+  # SAPHaRI: R 4.4.1 with CRAN pinned to the 2024-08-15 snapshot
+  legacy:
+    runs-on: windows-latest
+
+    name: SAPHaRI (R 4.4.1, CRAN 2024-08-15)
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+      NSWTHEME_LEGACY_LIB: ${{ github.workspace }}/legacy-lib
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.1'
+          use-public-rspm: false
+
+      - name: Cache the snapshot library
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.NSWTHEME_LEGACY_LIB }}
+          key: legacy-lib-${{ runner.os }}-4.4.1-2024-08-15
+
+      - name: Build the snapshot library
+        run: Rscript .github/legacy-check.R
+        env:
+          NSWTHEME_LEGACY_INSTALL_ONLY: "true"
+
+      - name: Run the tests against it
+        run: Rscript .github/legacy-check.R
