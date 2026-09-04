@@ -13,6 +13,7 @@ reference:
     Main theme and colour palettes.
   contents:
   - theme_nsw
+  - scale_colour_nsw
   - pal_waratah
   - pal_nsw
 - title: Colour utilities
