@@ -23,6 +23,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Zoe Baldwin \email{zoe.baldwin@health.nsw.gov.au} (\href{https://orcid.org/0000-0002-6010-9361}{ORCID})
   \item Carl Suster \email{carl.suster@sydney.edu.au} (\href{https://orcid.org/0000-0001-7021-9380}{ORCID})
 }
 

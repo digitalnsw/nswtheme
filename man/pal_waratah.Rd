@@ -56,7 +56,8 @@ pal_waratah("div", hue = "yellow", variant = "aboriginal") |>
 
 }
 \seealso{
-Other palettes: 
-\code{\link{pal_nsw}()}
+Other palettes:
+\code{\link[=pal_nsw]{pal_nsw()}},
+\code{\link[=scale_colour_nsw]{scale_colour_nsw()}}
 }
 \concept{palettes}

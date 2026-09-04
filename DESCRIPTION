@@ -27,7 +27,6 @@ License: MIT + file LICENSE
 Copyright: file COPYRIGHTS + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends:
     R (>= 4.1)
 Imports:
@@ -65,3 +64,4 @@ Config/Needs/website:
     rmarkdown,
     gdtools,
     gfonts
+Config/roxygen2/version: 8.1.0

@@ -16,11 +16,13 @@ export(scale_colour_nsw)
 export(scale_fill_nsw)
 export(theme_nsw)
 export(tooltip_css)
-importFrom(ggplot2,"%+replace%")
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_line)
-importFrom(ggplot2,element_rect)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,rel)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,waiver)
+importFrom(ggplot2,
+  "%+replace%",
+  element_blank,
+  element_line,
+  element_rect,
+  element_text,
+  rel,
+  theme,
+  waiver
+)

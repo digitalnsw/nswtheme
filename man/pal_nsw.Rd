@@ -94,7 +94,8 @@ pal_nsw(hue = "blues") |> as_continuous_pal() |> show_col(labels = FALSE)
 \seealso{
 \code{\link[=col_nsw]{col_nsw()}}
 
-Other palettes: 
-\code{\link{pal_waratah}()}
+Other palettes:
+\code{\link[=pal_waratah]{pal_waratah()}},
+\code{\link[=scale_colour_nsw]{scale_colour_nsw()}}
 }
 \concept{palettes}
