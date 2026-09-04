@@ -63,10 +63,21 @@ as_discrete_pal <- function(x, ...) {
 }
 
 col_mix <- function(a, b, amount = 0.5, space = "rgb") {
-  args <- vctrs::vec_recycle_common(a = a, b = b, amount = amount)
-  a <- farver::decode_colour(args$a, alpha = TRUE, to = space)
-  b <- farver::decode_colour(args$b, alpha = TRUE, to = space)
-  new <- a * (1 - args$amount) + b * args$amount
+  # recycling follows scales: a zero-length input makes the result zero-length
+  sizes <- setdiff(unique(lengths(list(a, b, amount))), 1L)
+  if (length(sizes) > 1) {
+    cli::cli_abort("{.arg a}, {.arg b} and {.arg amount} must be recyclable.")
+  }
+  size <- if (length(sizes) == 1) sizes else 1L
+  if (size == 0) {
+    return(character())
+  }
+  if (any(amount < 0 | amount > 1)) {
+    cli::cli_abort("{.arg amount} must be between (0, 1).")
+  }
+  a <- farver::decode_colour(rep_len(a, size), alpha = TRUE, to = space)
+  b <- farver::decode_colour(rep_len(b, size), alpha = TRUE, to = space)
+  new <- a * (1 - amount) + b * amount
   farver::encode_colour(new, alpha = new[, "alpha"], from = space)
 }
 
