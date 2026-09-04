@@ -58,7 +58,7 @@ theme_nsw <- function(
   accent <- resolve_colours(accent)
 
   new_theme <-
-    ggplot2::theme_minimal(
+    theme_minimal(
       base_size = base_size,
       base_family = base_family,
       header_family = header_family,
@@ -94,7 +94,7 @@ theme_nsw <- function(
         valign = 0
       ),
       plot.subtitle = ggtext::element_textbox_simple(
-        margin = ggplot2::margin_part(t = base_size, b = base_size * 2),
+        margin = margin_part(t = base_size, b = base_size * 2),
         lineheight = 1,
         hjust = 0,
         halign = 0,
@@ -128,21 +128,10 @@ theme_nsw <- function(
         colour = nsw_colours$grey_03,
         linewidth = rel(0.3)
       ),
-      axis.ticks.length = rel(1),
-      geom = ggplot2::element_geom(
-        ink = ink,
-        paper = paper,
-        accent = accent,
-        colour = geom_ink,
-        fill = geom_ink,
-        pointsize = 2,
-      ),
-      palette.colour.discrete = pal_waratah(type = "qual", variant = variant),
-      palette.fill.discrete = pal_waratah(type = "qual", variant = variant),
-      palette.colour.continuous = pal_waratah(type = "seq", variant = variant),
-      palette.fill.continuous = pal_waratah(type = "seq", variant = variant),
+      axis.ticks.length = ticks_length(base_size),
       complete = TRUE
-    )
+    ) %+replace%
+    theme_nsw_extras(ink, paper, accent, geom_ink, variant)
 
   if (!show_grid_lines) {
     new_theme <- new_theme %+replace%
@@ -171,4 +160,26 @@ theme_nsw <- function(
   }
 
   new_theme
+}
+
+# ggplot2 4.0.0 carries geom defaults and scale palettes in the theme itself.
+# On earlier versions use scale_colour_nsw()/scale_fill_nsw() instead.
+theme_nsw_extras <- function(ink, paper, accent, geom_ink, variant) {
+  if (!has_theme_elements()) {
+    return(theme())
+  }
+  theme(
+    geom = ggplot2::element_geom(
+      ink = ink,
+      paper = paper,
+      accent = accent,
+      colour = geom_ink,
+      fill = geom_ink,
+      pointsize = 2,
+    ),
+    palette.colour.discrete = pal_waratah(type = "qual", variant = variant),
+    palette.fill.discrete = pal_waratah(type = "qual", variant = variant),
+    palette.colour.continuous = pal_waratah(type = "seq", variant = variant),
+    palette.fill.continuous = pal_waratah(type = "seq", variant = variant)
+  )
 }

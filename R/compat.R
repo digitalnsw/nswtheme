@@ -6,8 +6,16 @@
 #   @importFrom scales palette_nlevels palette_type
 #   @importFrom scales as_discrete_pal as_continuous_pal col_mix
 #
-# If updating to ggplot2 4.0.0: delete is_waiver() and add
-#   @importFrom ggplot2 is_waiver
+# If updating to ggplot2 4.0.0: delete:
+#   - has_theme_elements()
+#   - is_waiver(),
+#   - theme_minimal()
+#   - margin_part()
+#   - ticks_length(),
+# inline theme_nsw_extras() into theme_nsw(),
+# restore axis.ticks.length = rel(1), and
+# add:
+#   @importFrom ggplot2 is_waiver theme_minimal margin_part
 
 new_discrete_palette <- function(fun, type, nlevels = NA) {
   class(fun) <- union(c("pal_discrete", "scales_pal"), class(fun))
@@ -63,3 +71,61 @@ col_mix <- function(a, b, amount = 0.5, space = "rgb") {
 }
 
 is_waiver <- function(x) inherits(x, "waiver")
+
+has_theme_elements <- function() {
+  !isTRUE(getOption("nswtheme.force_legacy")) &&
+    utils::packageVersion("ggplot2") >= "4.0.0"
+}
+
+# ink, paper, accent and header_family are new in ggplot2 4.0.0
+theme_minimal <- function(
+  base_size = 11,
+  base_family = "",
+  header_family = NULL,
+  base_line_size = base_size / 22,
+  base_rect_size = base_size / 22,
+  ink = "black",
+  paper = "white",
+  accent = "#3366FF"
+) {
+  if (has_theme_elements()) {
+    return(ggplot2::theme_minimal(
+      base_size = base_size,
+      base_family = base_family,
+      header_family = header_family,
+      base_line_size = base_line_size,
+      base_rect_size = base_rect_size,
+      ink = ink,
+      paper = paper,
+      accent = accent
+    ))
+  }
+
+  ggplot2::theme_minimal(
+    base_size = base_size,
+    base_family = base_family,
+    base_line_size = base_line_size,
+    base_rect_size = base_rect_size
+  ) +
+    theme(
+      line = element_line(colour = ink),
+      rect = element_rect(fill = paper, colour = ink),
+      text = element_text(colour = ink),
+      title = element_text(family = header_family),
+      axis.text = element_text(colour = col_mix(ink, paper, 0.302)),
+      strip.text = element_text(colour = col_mix(ink, paper, 0.1)),
+      plot.background = element_rect(fill = paper, colour = NA)
+    )
+}
+
+margin_part <- function(t = 0, r = 0, b = 0, l = 0) {
+  if (has_theme_elements()) {
+    ggplot2::margin_part(t = t, r = r, b = b, l = l)
+  } else {
+    ggplot2::margin(t = t, r = r, b = b, l = l)
+  }
+}
+
+ticks_length <- function(base_size) {
+  if (has_theme_elements()) rel(1) else ggplot2::unit(base_size / 2, "pt")
+}
