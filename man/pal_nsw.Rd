@@ -39,7 +39,7 @@ A palette object (see \code{\link[scales:pal_manual]{scales::pal_manual()}})
 \description{
 Palettes created using the \href{https://designsystem.nsw.gov.au/docs/content/design/theming.html}{NSW Design System}.
 To use the Aboriginal colour grid, specify \code{variant = "aboriginal"}.
-\if{html}{\figure{nsw_palette.svg}{options: width=95\%}}
+\if{html}{\figure{nsw_palette.svg}{options: width=700px}}
 }
 \details{
 To use palettes based on the NSW Design System colour grids, either

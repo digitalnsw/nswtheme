@@ -2,7 +2,7 @@
 #'
 #' Palettes created using the [NSW Design System](https://designsystem.nsw.gov.au/docs/content/design/theming.html).
 #' To use the Aboriginal colour grid, specify `variant = "aboriginal"`.
-#' \if{html}{\figure{nsw_palette.svg}{options: width=95%}}
+#' \if{html}{\figure{nsw_palette.svg}{options: width=700px}}
 #' `r svglite::svglite("man/figures/nsw_palette.svg"); display_pal_nsw(); invisible(dev.off())`
 #'
 #' @export
