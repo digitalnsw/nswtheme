@@ -46,5 +46,5 @@ with_defined_theme <- function(name, parent, colours, code) {
 }
 
 pal_values <- function(pal) {
-  pal(scales::palette_nlevels(pal))
+  pal(palette_nlevels(pal))
 }

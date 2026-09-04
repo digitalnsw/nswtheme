@@ -17,7 +17,7 @@
 #'   Ignored unless `hue` or `tone` is specified.
 #' @param direction set to -1 to reverse the order of colours in the palette,
 #'   or 1 for the original order.
-#' @returns A palette object (see [palette constructors][scales::new_continuous_palette])
+#' @returns A palette object (see [scales::pal_manual()])
 #'
 #' @details
 #' To use palettes based on the NSW Design System colour grids, either
@@ -85,7 +85,7 @@ pal_nsw <- function(
     colours <- rev(colours)
   }
 
-  scales::pal_manual(unlist(colours), type = "colour")
+  new_colour_pal(colours)
 }
 
 #' @rdname pal_nsw
@@ -95,7 +95,7 @@ pal_nsw <- function(
 #' @export
 pal_nsw_manual <- function(colours) {
   colours <- rlang::env_get_list(colours, env = as.environment(nsw_colours))
-  scales::pal_manual(unlist(unname(colours)), type = "colour")
+  new_colour_pal(colours)
 }
 
 nsw_named_palettes <- rlang::new_environment(list(

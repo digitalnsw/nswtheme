@@ -18,7 +18,7 @@
 #'   Requires the `colorBlindness` package.
 #' @inheritParams pal_nsw
 #'
-#' @returns A palette object (see [palette constructors][scales::new_continuous_palette])
+#' @returns A palette object (see [scales::pal_manual()])
 #' @family palettes
 #' @export
 #' @examples
@@ -51,7 +51,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_manual(unlist(colours), type = "colour")
+    new_colour_pal(colours)
   } else if (type %in% c("pairs", "triples")) {
     if (!missing(hue)) {
       cli::cli_warn("{.arg hue} will be ignored")
@@ -63,7 +63,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_manual(unlist(colours), type = "colour")
+    new_colour_pal(colours)
   } else if (type == "seq") {
     if (variant == "base" && missing(hue)) {
       hue = 4L
@@ -72,7 +72,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_gradient_n(colours)
+    new_gradient_pal(colours)
   } else if (type == "div") {
     if (variant == "base" && missing(hue)) {
       hue = 4L
@@ -90,6 +90,6 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_gradient_n(colours)
+    new_gradient_pal(colours)
   }
 }

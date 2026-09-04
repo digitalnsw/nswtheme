@@ -17,7 +17,7 @@ test_that("col_contrasting accepts custom ink colours and hex input", {
 
 test_that("pal_c concatenates palettes and bare colour vectors", {
   pal <- pal_c(pal_nsw(palette = "core"), c("#123456", "#654321"))
-  expect_true(scales::is_discrete_pal(pal))
+  expect_true(is_discrete_pal(pal))
   expect_equal(
     pal_values(pal),
     c(unname(pal_values(pal_nsw(palette = "core"))), "#123456", "#654321")
@@ -45,7 +45,7 @@ test_that("pal_interleave requires palettes of compatible lengths", {
 
 test_that("pal_stretch interpolates a discrete palette to any size", {
   pal <- pal_stretch(pal_nsw(palette = "core"))
-  expect_true(scales::is_discrete_pal(pal))
+  expect_true(is_discrete_pal(pal))
   ends <- toupper(unname(pal_values(pal_nsw(palette = "core"))))
   expect_equal(pal(2), ends)
   expect_equal(pal(5)[c(1, 5)], ends)

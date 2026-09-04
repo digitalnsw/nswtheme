@@ -34,7 +34,7 @@ or 1 for the original order.}
 \item{colours}{vector of colour names corresponding to \link{nsw_colours}.}
 }
 \value{
-A palette object (see \link[scales:new_continuous_palette]{palette constructors})
+A palette object (see \code{\link[scales:pal_manual]{scales::pal_manual()}})
 }
 \description{
 Palettes created using the \href{https://designsystem.nsw.gov.au/docs/content/design/theming.html}{NSW Design System}.

@@ -1,7 +1,7 @@
 test_that("qual palettes are a reordering of the two darkest tones", {
   pal <- pal_waratah("qual")
-  expect_true(scales::is_discrete_pal(pal))
-  expect_equal(scales::palette_type(pal), "colour")
+  expect_true(is_discrete_pal(pal))
+  expect_equal(palette_type(pal), "colour")
 
   colours <- pal_values(pal)
   expect_false(anyDuplicated(colours) > 0)
@@ -72,7 +72,7 @@ test_that("pairs and triples use the expected tonal rows", {
 
 test_that("seq palettes span the tones of one hue", {
   pal <- pal_waratah("seq", hue = "reds")
-  expect_true(scales::is_continuous_pal(pal))
+  expect_true(is_continuous_pal(pal))
   expect_equal(
     pal(c(0, 1)),
     toupper(unname(col_nsw(hue = "reds")[c(1, 4)]))
@@ -86,7 +86,7 @@ test_that("seq palettes span the tones of one hue", {
 
 test_that("div palettes pass through white in the middle", {
   pal <- pal_waratah("div", hue = "reds")
-  expect_true(scales::is_continuous_pal(pal))
+  expect_true(is_continuous_pal(pal))
   expect_equal(pal(0.5), "#FFFFFF")
   expect_equal(pal(0), toupper(unname(col_nsw(hue = "reds")[[1]])))
   # the far end is a different hue chosen to contrast with `hue`

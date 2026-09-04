@@ -27,8 +27,21 @@ test_that("farver reports colour distances above the diagonal", {
   }
 })
 
-test_that("scales::col_mix blends towards its second argument", {
-  # reactable_nswtheme() relies on the direction
-  expect_equal(scales::col_mix("#000000", "#ffffff", amount = 0), "#000000FF")
-  expect_equal(scales::col_mix("#000000", "#ffffff", amount = 1), "#FFFFFFFF")
+test_that("scales still interoperates with our palette objects", {
+  # We build palette objects ourselves so that scales 1.3.0 is enough. When a
+  # newer scales is present it should still recognise what we produce.
+  skip_if_not_installed("scales", "1.4.0")
+
+  pal <- pal_nsw(hue = "blues")
+  expect_true(scales::is_discrete_pal(pal))
+  expect_equal(scales::palette_type(pal), "colour")
+  expect_equal(scales::palette_nlevels(pal), 4L)
+  expect_true(scales::is_continuous_pal(pal_waratah("seq")))
+
+  cts <- scales::as_continuous_pal(pal)
+  expect_equal(cts(c(0, 1)), toupper(unname(col_nsw(hue = "blues")[c(1, 4)])))
+  expect_equal(
+    col_mix("#000000", "#ffffff", amount = 0.3),
+    scales::col_mix("#000000", "#ffffff", amount = 0.3)
+  )
 })

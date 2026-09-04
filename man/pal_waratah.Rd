@@ -37,7 +37,7 @@ Ignored unless \code{hue} or \code{tone} is specified.}
 or 1 for the original order.}
 }
 \value{
-A palette object (see \link[scales:new_continuous_palette]{palette constructors})
+A palette object (see \code{\link[scales:pal_manual]{scales::pal_manual()}})
 }
 \description{
 Unlike \code{\link[=pal_nsw]{pal_nsw()}}, \code{pal_waratah()} is not based strictly on the NSW colour

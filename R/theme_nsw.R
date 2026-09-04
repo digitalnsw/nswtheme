@@ -16,7 +16,6 @@
 #' @returns ggplot theme specification to add to a plot
 #' @export
 #' @importFrom ggplot2 theme element_blank element_text element_geom element_line element_rect %+replace% rel
-#' @importFrom scales as_continuous_pal
 #' @examples
 #' library(ggplot2)
 #' set_theme(theme_nsw())

@@ -14,9 +14,9 @@ test_that("warns when params are ignored", {
 
 test_that("pal_nsw returns a discrete colour palette", {
   pal <- pal_nsw()
-  expect_true(scales::is_discrete_pal(pal))
-  expect_equal(scales::palette_type(pal), "colour")
-  expect_equal(scales::palette_nlevels(pal), length(nsw_named_palettes$default))
+  expect_true(is_discrete_pal(pal))
+  expect_equal(palette_type(pal), "colour")
+  expect_equal(palette_nlevels(pal), length(nsw_named_palettes$default))
 })
 
 test_that("pal_nsw defaults to the default named palette", {
@@ -71,7 +71,7 @@ test_that("direction = -1 reverses the palette", {
 
 test_that("pal_nsw_manual resolves anchor colour names", {
   pal <- pal_nsw_manual(c("blue_02", "red_01", "green_03"))
-  expect_true(scales::is_discrete_pal(pal))
+  expect_true(is_discrete_pal(pal))
   expect_equal(
     pal_values(pal),
     unname(c(nsw_colours$blue_02, nsw_colours$red_01, nsw_colours$green_03))
@@ -80,8 +80,8 @@ test_that("pal_nsw_manual resolves anchor colour names", {
 })
 
 test_that("discrete palettes can be interpolated", {
-  cts <- scales::as_continuous_pal(pal_nsw(hue = "blues"))
-  expect_true(scales::is_continuous_pal(cts))
+  cts <- as_continuous_pal(pal_nsw(hue = "blues"))
+  expect_true(is_continuous_pal(cts))
   expect_equal(
     cts(c(0, 1)),
     toupper(unname(col_nsw(hue = "blues")[c(1, 4)]))

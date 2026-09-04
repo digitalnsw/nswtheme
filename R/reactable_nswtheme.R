@@ -84,7 +84,7 @@ reactable_nswtheme <- function(
   )
 
   if (is.na(stripedColor)) {
-    stripedColor <- scales::col_mix(backgroundColor, borderColor, amount = 0.3)
+    stripedColor <- col_mix(backgroundColor, borderColor, amount = 0.3)
   }
 
   reactable::reactableTheme(
