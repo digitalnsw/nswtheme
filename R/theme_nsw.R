@@ -14,11 +14,18 @@
 #'   Ignored when `void` is `TRUE`.
 #' @inheritParams ggplot2::theme_minimal
 #' @returns ggplot theme specification to add to a plot
+#' @section Compatibility:
+#' ggplot2 versions prior to 4.0.0 are missing some theme elements. If your'e
+#' using an older version:
+#'   * `accent` is accepted but unused,
+#'   * geoms keep the ggplot2 defaults instead of `geom_ink`,
+#'   * NSW palettes need [`scale_colour_nsw()`] or [`scale_fill_nsw()`].
+#'
 #' @export
 #' @importFrom ggplot2 theme element_blank element_text element_line element_rect %+replace% rel
 #' @examples
 #' library(ggplot2)
-#' set_theme(theme_nsw())
+#' theme_set(theme_nsw())
 #'
 #' ggplot(palmerpenguins::penguins) +
 #'   geom_point(aes(
@@ -29,12 +36,10 @@
 #'   )) +
 #'   labs(
 #'     caption = "Data from {palmerpenguins}",
-#'     dictionary = c(
-#'       bill_length_mm = "Bill length (mm)",
-#'       flipper_length_mm = "Flipper length (mm)",
-#'       species = "Species",
-#'       body_mass_g = "Body mass (g)"
-#'     )
+#'     x = "Bill length (mm)",
+#'     y = "Flipper length (mm)",
+#'     colour = "Species",
+#'     size = "Body mass (g)"
 #'   )
 #'
 theme_nsw <- function(

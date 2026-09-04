@@ -44,7 +44,7 @@ In many instances it may be sufficient to set the global theme:
 library(ggplot2)
 library(nswtheme)
 
-set_theme(theme_nsw())
+theme_set(theme_nsw())
 
 ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()

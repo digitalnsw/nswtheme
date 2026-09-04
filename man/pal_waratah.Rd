@@ -48,10 +48,15 @@ into account colour-blindness when doing so.
 \examples{
 library(scales)
 
-pal_waratah("qual") |> show_col()
-pal_waratah("pairs") |> show_col()
-pal_waratah("seq", hue = "red") |> show_col(labels = FALSE)
+pal_waratah("qual") |> as_colour_vector() |> show_col()
+pal_waratah("pairs") |> as_colour_vector() |> show_col()
+pal_waratah("seq", hue = "red") |>
+  pal_stretch() |>
+  as_colour_vector() |>
+  show_col(labels = FALSE)
 pal_waratah("div", hue = "yellow", variant = "aboriginal") |>
+  pal_stretch() |>
+  as_colour_vector() |>
   show_col(labels = FALSE)
 
 }

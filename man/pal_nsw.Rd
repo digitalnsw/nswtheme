@@ -81,15 +81,15 @@ Unambiguous shortened forms are accepted, e.g. \code{pal_nsw(h = "red", v = "a")
 \examples{
 library(scales)
 
-pal_nsw() |> show_col()
-pal_nsw(hue = "blues") |> show_col()
-pal_nsw(tone = 1:2, variant = "corporate") |> show_col()
-pal_nsw(tone = "light") |> show_col()
-pal_nsw(tone = "normal", variant = "aboriginal") |> show_col()
-pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> show_col()
+pal_nsw() |> as_colour_vector() |> show_col()
+pal_nsw(hue = "blues") |> as_colour_vector() |> show_col()
+pal_nsw(tone = 1:2, variant = "corporate") |> as_colour_vector() |> show_col()
+pal_nsw(tone = "light") |> as_colour_vector() |> show_col()
+pal_nsw(tone = "normal", variant = "aboriginal") |> as_colour_vector() |> show_col()
+pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> as_colour_vector() |> show_col()
 
-# you can interpolate colours by converting to a continuous scale
-pal_nsw(hue = "blues") |> as_continuous_pal() |> show_col(labels = FALSE)
+# interpolate a palette to get a smooth ramp
+pal_nsw(hue = "blues") |> pal_stretch() |> as_colour_vector() |> show_col()
 }
 \seealso{
 \code{\link[=col_nsw]{col_nsw()}}

@@ -44,7 +44,7 @@ Recommendations:
 ## Theme for ggplot2
 
 `theme_nsw()` sets default fonts, styles, and colour palettes for plots.
-You can set the theme globally with `ggplot2::set_theme()` or add it to an individual plot.
+You can set the theme globally with `ggplot2::theme_set()` or add it to an individual plot.
 If using any global options like `options(nswtheme.colour_theme = "aboriginal")`, make sure
 to do this before setting the theme.
 

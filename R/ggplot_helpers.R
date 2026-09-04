@@ -13,6 +13,8 @@ NULL
 #'     the NSW grid.
 #'   - `col_contrasting()` chooses colours based on the given background colours.
 #'     It helps when drawing text on top of a mapped (i.e. variable) fill aesthetic
+#'   - `as_colour_vector()` returns the colours of a discrete palette, which is
+#'     handy for passing them to functions that expect a colour vector.
 #'
 #' @param ... two or more vectors of colours.
 #' @param colour vector of colours.
@@ -21,6 +23,7 @@ NULL
 #'
 #' @return
 #'   - for `col_contrasting()` a vector of colours the same length as `colour`,
+#'   - for `as_colour_vector()` a vector of colours,
 #'   - for `pal_*()` a palette object.
 #'
 #' @export
@@ -57,6 +60,9 @@ col_contrasting <- function(colour, light = "white", dark = "black") {
   ifelse(lab[, 1] < 50, light, dark)
 }
 
+#' @export
+#' @rdname ggplot_palettes
+#' @param x a palette object, or a vector of colours to return unchanged.
 as_colour_vector <- function(x) {
   if (is_discrete_pal(x)) {
     x(palette_nlevels(x))
