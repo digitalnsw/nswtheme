@@ -48,3 +48,7 @@ with_defined_theme <- function(name, parent, colours, code) {
 pal_values <- function(pal) {
   pal(palette_nlevels(pal))
 }
+
+skip_if_old_ggplot2 <- function() {
+  skip_if_not(has_theme_elements(), "needs ggplot2 >= 4.0.0")
+}

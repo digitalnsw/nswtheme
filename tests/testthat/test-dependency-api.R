@@ -1,5 +1,6 @@
 test_that("ggplot2 still recognises the theme elements theme_nsw() sets", {
-  # theme() accepts unknown names through `...` without complaint
+  skip_if_old_ggplot2()
+  # theme_nsw() sets these by name, so they must stay registered
   elements <- c(
     "geom",
     "palette.colour.discrete",

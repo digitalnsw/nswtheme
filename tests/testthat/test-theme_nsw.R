@@ -12,11 +12,6 @@ test_that("NSW colour names are accepted wherever a colour is taken", {
     accent = "red_02",
     geom_ink = "teal_02"
   )
-  expect_equal(theme$geom$ink, nsw_colours$grey_01)
-  expect_equal(theme$geom$paper, nsw_colours$off_white)
-  expect_equal(theme$geom$accent, nsw_colours$red_02)
-  expect_equal(theme$geom$colour, nsw_colours$teal_02)
-  expect_equal(theme$geom$fill, nsw_colours$teal_02)
   expect_equal(theme$legend.key$colour, nsw_colours$grey_01)
   expect_equal(
     ggplot2::calc_element("plot.background", theme)$fill,
@@ -25,10 +20,9 @@ test_that("NSW colour names are accepted wherever a colour is taken", {
 })
 
 test_that("colours that are not NSW names are passed through untouched", {
-  theme <- theme_nsw(ink = "navy", geom_ink = "#123456", paper = "white")
-  expect_equal(theme$geom$ink, "navy")
-  expect_equal(theme$geom$colour, "#123456")
-  expect_equal(theme$geom$paper, "white")
+  theme <- theme_nsw(ink = "navy", paper = "white")
+  expect_equal(theme$legend.key$colour, "navy")
+  expect_equal(ggplot2::calc_element("plot.background", theme)$fill, "white")
 })
 
 test_that("panel elements use the design system greys", {
@@ -114,21 +108,36 @@ test_that("void overrides show_grid_lines", {
   expect_s3_class(theme$panel.grid.major, "element_blank")
 })
 
-test_that("the theme supplies default discrete palettes", {
-  theme <- theme_nsw()
-  qual <- pal_waratah("qual")
-  expect_equal(theme$palette.colour.discrete(3), qual(3))
-  expect_equal(theme$palette.fill.discrete(3), qual(3))
-})
+test_that("ggplot2 4 carries the geom and palette settings in the theme", {
+  skip_if_old_ggplot2()
+  theme <- theme_nsw(
+    ink = "grey_01",
+    paper = "off_white",
+    accent = "red_02",
+    geom_ink = "teal_02"
+  )
+  expect_equal(theme$geom$ink, nsw_colours$grey_01)
+  expect_equal(theme$geom$paper, nsw_colours$off_white)
+  expect_equal(theme$geom$accent, nsw_colours$red_02)
+  expect_equal(theme$geom$colour, nsw_colours$teal_02)
+  expect_equal(theme$geom$fill, nsw_colours$teal_02)
 
-test_that("the theme supplies default continuous palettes", {
-  theme <- theme_nsw()
+  passthrough <- theme_nsw(ink = "navy", geom_ink = "#123456", paper = "white")
+  expect_equal(passthrough$geom$ink, "navy")
+  expect_equal(passthrough$geom$colour, "#123456")
+  expect_equal(passthrough$geom$paper, "white")
+
+  default <- theme_nsw()
+  qual <- pal_waratah("qual")
   seq_pal <- pal_waratah("seq")
-  expect_equal(theme$palette.colour.continuous(c(0, 1)), seq_pal(c(0, 1)))
-  expect_equal(theme$palette.fill.continuous(c(0, 1)), seq_pal(c(0, 1)))
+  expect_equal(default$palette.colour.discrete(3), qual(3))
+  expect_equal(default$palette.fill.discrete(3), qual(3))
+  expect_equal(default$palette.colour.continuous(c(0, 1)), seq_pal(c(0, 1)))
+  expect_equal(default$palette.fill.continuous(c(0, 1)), seq_pal(c(0, 1)))
 })
 
 test_that("discrete scales pick up the theme palette", {
+  skip_if_old_ggplot2()
   plot <- ggplot2::ggplot(test_df, ggplot2::aes(x, y, colour = g)) +
     ggplot2::geom_point() +
     theme_nsw()
@@ -141,6 +150,7 @@ test_that("discrete scales pick up the theme palette", {
 })
 
 test_that("continuous scales pick up the theme palette", {
+  skip_if_old_ggplot2()
   plot <- ggplot2::ggplot(test_df_cts, ggplot2::aes(x, y, colour = z)) +
     ggplot2::geom_point() +
     theme_nsw()
@@ -149,6 +159,7 @@ test_that("continuous scales pick up the theme palette", {
 })
 
 test_that("the variant selects which palettes the theme uses", {
+  skip_if_old_ggplot2()
   plot <- ggplot2::ggplot(test_df, ggplot2::aes(x, y, colour = g)) +
     ggplot2::geom_point() +
     theme_nsw(variant = "corporate")
@@ -163,6 +174,7 @@ test_that("the variant selects which palettes the theme uses", {
 })
 
 test_that("geoms without a mapped colour use geom_ink", {
+  skip_if_old_ggplot2()
   plot <- ggplot2::ggplot(test_df, ggplot2::aes(x, y)) +
     ggplot2::geom_point() +
     theme_nsw(geom_ink = "red_02")
@@ -183,4 +195,33 @@ test_that("the theme does not override explicit scales", {
     ) +
     theme_nsw()
   expect_equal(built_aes(plot, "colour"), c("red", "green", "blue"))
+})
+
+test_that("before ggplot2 4 the theme keeps everything but the palettes", {
+  with_options(list(nswtheme.force_legacy = TRUE), {
+    theme <- theme_nsw(
+      base_family = "Body Font",
+      header_family = "Header Font",
+      ink = "grey_01",
+      paper = "off_white"
+    )
+    expect_true(attr(theme, "complete"))
+    expect_equal(ggplot2::calc_element("axis.text", theme)$family, "Body Font")
+    expect_equal(ggplot2::calc_element("plot.title", theme)$family, "Header Font")
+    expect_equal(ggplot2::calc_element("text", theme)$colour, nsw_colours$grey_01)
+    expect_equal(
+      ggplot2::calc_element("plot.background", theme)$fill,
+      nsw_colours$off_white
+    )
+    expect_equal(theme$panel.grid.major$colour, nsw_colours$grey_03)
+    expect_s3_class(ggplot2::calc_element("axis.ticks.length", theme), "unit")
+
+    # the palettes are what is lost, and what the scales put back
+    expect_null(theme$palette.colour.discrete)
+    plot <- ggplot2::ggplot(test_df, ggplot2::aes(x, y, colour = g)) +
+      ggplot2::geom_point() +
+      theme +
+      scale_colour_nsw(palette = pal_waratah("qual"))
+    expect_equal(built_aes(plot, "colour"), pal_waratah("qual")(3))
+  })
 })
