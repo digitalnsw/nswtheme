@@ -1,4 +1,4 @@
-#' @importFrom ggplot2 waiver is_waiver
+#' @importFrom ggplot2 waiver
 NULL
 
 #' Construct palette variants
@@ -13,6 +13,8 @@ NULL
 #'     the NSW grid.
 #'   - `col_contrasting()` chooses colours based on the given background colours.
 #'     It helps when drawing text on top of a mapped (i.e. variable) fill aesthetic
+#'   - `as_colour_vector()` returns the colours of a discrete palette, which is
+#'     handy for passing them to functions that expect a colour vector.
 #'
 #' @param ... two or more vectors of colours.
 #' @param colour vector of colours.
@@ -21,34 +23,34 @@ NULL
 #'
 #' @return
 #'   - for `col_contrasting()` a vector of colours the same length as `colour`,
+#'   - for `as_colour_vector()` a vector of colours,
 #'   - for `pal_*()` a palette object.
 #'
 #' @export
 #' @rdname ggplot_palettes
 #'
 pal_interleave <- function(...) {
-  pals <- vctrs::vec_recycle_common(...)
-  pals <- Map(as_colour_vector, pals)
+  pals <- Map(as_colour_vector, rlang::list2(...))
+  pals <- vctrs::vec_recycle_common(!!!pals)
   n_cols <- length(pals[[1]])
   n_pals <- length(pals)
-  idx <- rep(seq_len(n_cols), each = n_pals)
   idx <- rep(seq_len(n_cols), each = n_pals) +
     rep(seq_len(n_pals) - 1, times = n_cols) * n_cols
-  scales::pal_manual(unlist(pals)[idx], type = "colour")
+  new_colour_pal(unlist(pals)[idx])
 }
 
 #' @export
 #' @rdname ggplot_palettes
 pal_c <- function(...) {
   pals <- Map(as_colour_vector, rlang::list2(...))
-  scales::pal_manual(unlist(pals), type = "colour")
+  new_colour_pal(unlist(pals))
 }
 
 #' @export
 #' @rdname ggplot_palettes
 pal_stretch <- function(pal) {
-  cts <- scales::as_continuous_pal(pal)
-  scales::as_discrete_pal(cts)
+  cts <- as_continuous_pal(pal)
+  as_discrete_pal(cts)
 }
 
 #' @export
@@ -58,10 +60,30 @@ col_contrasting <- function(colour, light = "white", dark = "black") {
   ifelse(lab[, 1] < 50, light, dark)
 }
 
+#' @export
+#' @rdname ggplot_palettes
+#' @param x a palette object, or a vector of colours to return unchanged.
 as_colour_vector <- function(x) {
-  if (scales::is_discrete_pal(x)) {
-    x(scales::palette_nlevels(x))
+  if (is_discrete_pal(x)) {
+    x(palette_nlevels(x))
   } else {
     x
   }
+}
+
+new_colour_pal <- function(colours) {
+  colours <- unname(unlist(colours))
+  new_discrete_palette(
+    scales::pal_manual(colours),
+    type = "colour",
+    nlevels = length(colours)
+  )
+}
+
+new_gradient_pal <- function(colours) {
+  new_continuous_palette(
+    scales::pal_gradient_n(unname(unlist(colours))),
+    type = "colour",
+    na_safe = FALSE
+  )
 }

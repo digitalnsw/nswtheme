@@ -5,6 +5,7 @@
 \alias{pal_c}
 \alias{pal_stretch}
 \alias{col_contrasting}
+\alias{as_colour_vector}
 \title{Construct palette variants}
 \usage{
 pal_interleave(...)
@@ -14,6 +15,8 @@ pal_c(...)
 pal_stretch(pal)
 
 col_contrasting(colour, light = "white", dark = "black")
+
+as_colour_vector(x)
 }
 \arguments{
 \item{...}{two or more vectors of colours.}
@@ -23,10 +26,13 @@ col_contrasting(colour, light = "white", dark = "black")
 \item{colour}{vector of colours.}
 
 \item{light, dark}{colours to output when \code{colour} is dark or light respectively.}
+
+\item{x}{a palette object, or a vector of colours to return unchanged.}
 }
 \value{
 \itemize{
 \item for \code{col_contrasting()} a vector of colours the same length as \code{colour},
+\item for \code{as_colour_vector()} a vector of colours,
 \item for \verb{pal_*()} a palette object.
 }
 }
@@ -42,5 +48,7 @@ It's useful for stretching the 4 tones into 5 or 6, at the expense of straying f
 the NSW grid.
 \item \code{col_contrasting()} chooses colours based on the given background colours.
 It helps when drawing text on top of a mapped (i.e. variable) fill aesthetic
+\item \code{as_colour_vector()} returns the colours of a discrete palette, which is
+handy for passing them to functions that expect a colour vector.
 }
 }

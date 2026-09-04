@@ -37,7 +37,7 @@ Ignored unless \code{hue} or \code{tone} is specified.}
 or 1 for the original order.}
 }
 \value{
-A palette object (see \link[scales:new_continuous_palette]{palette constructors})
+A palette object (see \code{\link[scales:pal_manual]{scales::pal_manual()}})
 }
 \description{
 Unlike \code{\link[=pal_nsw]{pal_nsw()}}, \code{pal_waratah()} is not based strictly on the NSW colour
@@ -48,15 +48,21 @@ into account colour-blindness when doing so.
 \examples{
 library(scales)
 
-pal_waratah("qual") |> show_col()
-pal_waratah("pairs") |> show_col()
-pal_waratah("seq", hue = "red") |> show_col(labels = FALSE)
+pal_waratah("qual") |> as_colour_vector() |> show_col()
+pal_waratah("pairs") |> as_colour_vector() |> show_col()
+pal_waratah("seq", hue = "red") |>
+  pal_stretch() |>
+  as_colour_vector() |>
+  show_col(labels = FALSE)
 pal_waratah("div", hue = "yellow", variant = "aboriginal") |>
+  pal_stretch() |>
+  as_colour_vector() |>
   show_col(labels = FALSE)
 
 }
 \seealso{
-Other palettes: 
-\code{\link{pal_nsw}()}
+Other palettes:
+\code{\link[=pal_nsw]{pal_nsw()}},
+\code{\link[=scale_colour_nsw]{scale_colour_nsw()}}
 }
 \concept{palettes}

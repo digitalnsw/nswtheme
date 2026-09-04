@@ -54,9 +54,20 @@ ggplot theme specification to add to a plot
 A 'ggplot2' theme compatible with the NSW design system.
 It sets default colour scales, fonts, and some other styles.
 }
+\section{Compatibility}{
+
+ggplot2 versions prior to 4.0.0 are missing some theme elements. If your'e
+using an older version:
+\itemize{
+\item \code{accent} is accepted but unused,
+\item geoms keep the ggplot2 defaults instead of \code{geom_ink},
+\item NSW palettes need \code{\link[=scale_colour_nsw]{scale_colour_nsw()}} or \code{\link[=scale_fill_nsw]{scale_fill_nsw()}}.
+}
+}
+
 \examples{
 library(ggplot2)
-set_theme(theme_nsw())
+theme_set(theme_nsw())
 
 ggplot(palmerpenguins::penguins) +
   geom_point(aes(
@@ -67,12 +78,10 @@ ggplot(palmerpenguins::penguins) +
   )) +
   labs(
     caption = "Data from {palmerpenguins}",
-    dictionary = c(
-      bill_length_mm = "Bill length (mm)",
-      flipper_length_mm = "Flipper length (mm)",
-      species = "Species",
-      body_mass_g = "Body mass (g)"
-    )
+    x = "Bill length (mm)",
+    y = "Flipper length (mm)",
+    colour = "Species",
+    size = "Body mass (g)"
   )
 
 }

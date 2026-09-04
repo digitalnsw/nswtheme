@@ -34,12 +34,12 @@ or 1 for the original order.}
 \item{colours}{vector of colour names corresponding to \link{nsw_colours}.}
 }
 \value{
-A palette object (see \link[scales:new_continuous_palette]{palette constructors})
+A palette object (see \code{\link[scales:pal_manual]{scales::pal_manual()}})
 }
 \description{
 Palettes created using the \href{https://designsystem.nsw.gov.au/docs/content/design/theming.html}{NSW Design System}.
 To use the Aboriginal colour grid, specify \code{variant = "aboriginal"}.
-\if{html}{\figure{nsw_palette.svg}{options: width=95\%}}
+\if{html}{\figure{nsw_palette.svg}{options: width=700px}}
 }
 \details{
 To use palettes based on the NSW Design System colour grids, either
@@ -56,7 +56,7 @@ To create custom combinations of named colours from the design system, use
 
 The \code{"base"} variant supports:
 \itemize{
-\item \strong{hue}: greys, greens, teals, blues, purples, fucshias, reds, oranges, yellows, browns
+\item \strong{hue}: greys, greens, teals, blues, purples, fuchsias, reds, oranges, yellows, browns
 \item \strong{tone}: dark, normal, light, pale
 }
 
@@ -81,20 +81,21 @@ Unambiguous shortened forms are accepted, e.g. \code{pal_nsw(h = "red", v = "a")
 \examples{
 library(scales)
 
-pal_nsw() |> show_col()
-pal_nsw(hue = "blues") |> show_col()
-pal_nsw(tone = 1:2, variant = "corporate") |> show_col()
-pal_nsw(tone = "light") |> show_col()
-pal_nsw(tone = "normal", variant = "aboriginal") |> show_col()
-pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> show_col()
+pal_nsw() |> as_colour_vector() |> show_col()
+pal_nsw(hue = "blues") |> as_colour_vector() |> show_col()
+pal_nsw(tone = 1:2, variant = "corporate") |> as_colour_vector() |> show_col()
+pal_nsw(tone = "light") |> as_colour_vector() |> show_col()
+pal_nsw(tone = "normal", variant = "aboriginal") |> as_colour_vector() |> show_col()
+pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> as_colour_vector() |> show_col()
 
-# you can interpolate colours by converting to a continuous scale
-pal_nsw(hue = "blues") |> as_continuous_pal() |> show_col(labels = FALSE)
+# interpolate a palette to get a smooth ramp
+pal_nsw(hue = "blues") |> pal_stretch() |> as_colour_vector() |> show_col()
 }
 \seealso{
 \code{\link[=col_nsw]{col_nsw()}}
 
-Other palettes: 
-\code{\link{pal_waratah}()}
+Other palettes:
+\code{\link[=pal_waratah]{pal_waratah()}},
+\code{\link[=scale_colour_nsw]{scale_colour_nsw()}}
 }
 \concept{palettes}

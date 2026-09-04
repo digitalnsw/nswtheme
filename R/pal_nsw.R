@@ -2,7 +2,7 @@
 #'
 #' Palettes created using the [NSW Design System](https://designsystem.nsw.gov.au/docs/content/design/theming.html).
 #' To use the Aboriginal colour grid, specify `variant = "aboriginal"`.
-#' \if{html}{\figure{nsw_palette.svg}{options: width=95%}}
+#' \if{html}{\figure{nsw_palette.svg}{options: width=700px}}
 #' `r svglite::svglite("man/figures/nsw_palette.svg"); display_pal_nsw(); invisible(dev.off())`
 #'
 #' @export
@@ -17,7 +17,7 @@
 #'   Ignored unless `hue` or `tone` is specified.
 #' @param direction set to -1 to reverse the order of colours in the palette,
 #'   or 1 for the original order.
-#' @returns A palette object (see [palette constructors][scales::new_continuous_palette])
+#' @returns A palette object (see [scales::pal_manual()])
 #'
 #' @details
 #' To use palettes based on the NSW Design System colour grids, either
@@ -37,15 +37,15 @@
 #' @examples
 #' library(scales)
 #'
-#' pal_nsw() |> show_col()
-#' pal_nsw(hue = "blues") |> show_col()
-#' pal_nsw(tone = 1:2, variant = "corporate") |> show_col()
-#' pal_nsw(tone = "light") |> show_col()
-#' pal_nsw(tone = "normal", variant = "aboriginal") |> show_col()
-#' pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> show_col()
+#' pal_nsw() |> as_colour_vector() |> show_col()
+#' pal_nsw(hue = "blues") |> as_colour_vector() |> show_col()
+#' pal_nsw(tone = 1:2, variant = "corporate") |> as_colour_vector() |> show_col()
+#' pal_nsw(tone = "light") |> as_colour_vector() |> show_col()
+#' pal_nsw(tone = "normal", variant = "aboriginal") |> as_colour_vector() |> show_col()
+#' pal_nsw_manual(c("blue_02", "red_01", "green_03")) |> as_colour_vector() |> show_col()
 #'
-#' # you can interpolate colours by converting to a continuous scale
-#' pal_nsw(hue = "blues") |> as_continuous_pal() |> show_col(labels = FALSE)
+#' # interpolate a palette to get a smooth ramp
+#' pal_nsw(hue = "blues") |> pal_stretch() |> as_colour_vector() |> show_col()
 pal_nsw <- function(
   palette = waiver(),
   hue = NA,
@@ -85,7 +85,7 @@ pal_nsw <- function(
     colours <- rev(colours)
   }
 
-  scales::pal_manual(unlist(colours), type = "colour")
+  new_colour_pal(colours)
 }
 
 #' @rdname pal_nsw
@@ -95,7 +95,7 @@ pal_nsw <- function(
 #' @export
 pal_nsw_manual <- function(colours) {
   colours <- rlang::env_get_list(colours, env = as.environment(nsw_colours))
-  scales::pal_manual(unlist(unname(colours)), type = "colour")
+  new_colour_pal(colours)
 }
 
 nsw_named_palettes <- rlang::new_environment(list(

@@ -125,7 +125,7 @@ nsw_colour_grids[["base"]] <- new_grid(
     "teals",
     "blues",
     "purples",
-    "fucshias",
+    "fuchsias",
     "reds",
     "oranges",
     "yellows",

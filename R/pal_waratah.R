@@ -18,16 +18,21 @@
 #'   Requires the `colorBlindness` package.
 #' @inheritParams pal_nsw
 #'
-#' @returns A palette object (see [palette constructors][scales::new_continuous_palette])
+#' @returns A palette object (see [scales::pal_manual()])
 #' @family palettes
 #' @export
 #' @examples
 #' library(scales)
 #'
-#' pal_waratah("qual") |> show_col()
-#' pal_waratah("pairs") |> show_col()
-#' pal_waratah("seq", hue = "red") |> show_col(labels = FALSE)
+#' pal_waratah("qual") |> as_colour_vector() |> show_col()
+#' pal_waratah("pairs") |> as_colour_vector() |> show_col()
+#' pal_waratah("seq", hue = "red") |>
+#'   pal_stretch() |>
+#'   as_colour_vector() |>
+#'   show_col(labels = FALSE)
 #' pal_waratah("div", hue = "yellow", variant = "aboriginal") |>
+#'   pal_stretch() |>
+#'   as_colour_vector() |>
 #'   show_col(labels = FALSE)
 #'
 pal_waratah <- function(
@@ -51,7 +56,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_manual(unlist(colours), type = "colour")
+    new_colour_pal(colours)
   } else if (type %in% c("pairs", "triples")) {
     if (!missing(hue)) {
       cli::cli_warn("{.arg hue} will be ignored")
@@ -63,7 +68,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_manual(unlist(colours), type = "colour")
+    new_colour_pal(colours)
   } else if (type == "seq") {
     if (variant == "base" && missing(hue)) {
       hue = 4L
@@ -72,7 +77,7 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_gradient_n(colours)
+    new_gradient_pal(colours)
   } else if (type == "div") {
     if (variant == "base" && missing(hue)) {
       hue = 4L
@@ -90,6 +95,6 @@ pal_waratah <- function(
     if (direction < 0) {
       colours <- rev(colours)
     }
-    scales::pal_gradient_n(colours)
+    new_gradient_pal(colours)
   }
 }
